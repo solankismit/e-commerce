@@ -1,5 +1,5 @@
 const {expressjwt} = require("express-jwt");
-const { PASSWORD_SECRET, API_URL } = require("../contants");
+const { PASSWORD_SECRET, API_URL } = require("../config/constants");
 const { json } = require("body-parser");
 
 function authJwt() {
