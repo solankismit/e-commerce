@@ -102,9 +102,8 @@ const productSchema = mongoose.Schema(
 productSchema.index({ name: "text", description: "text" });
 
 //The virtual method allows you to define properties that are not stored in the database but can be computed from existing data. In this case, id is a virtual property.
-/**
- * 
-productSchema.virtual('id').get(function() {
+
+productSchema.virtual("id").get(function () {
   return this._id.toHexString();
 });
 
@@ -113,6 +112,5 @@ productSchema.virtual('id').get(function() {
 productSchema.set("toJSON", {
   virtuals: true,
 });
-*/
 
 exports.Product = mongoose.model("Product", productSchema);
