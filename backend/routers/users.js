@@ -5,29 +5,33 @@ const { User } = require("../models/user");
 const jwt = require("jsonwebtoken");
 const { PASSWORD_SECRET } = require("../contants");
 
+/**
+ * @route GET /api/users
+ * @description Get a list of all users (excluding password hashes)
+ * @access Public
+ */
 router.get(`/`, async (req, res) => {
   const userList = await User.find().select("-passwordHash");
 
   if (!userList) {
-    res.status(500).json({ success: false });
+    return res.status(500).json({ success: false });
   }
   res.send(userList);
 });
 
 /**
  * @route GET /api/users/:id
- * @description Get a single user by ID
+ * @description Get a single user by ID (excluding password hash)
  * @access Public
  */
 router.get(`/:id`, async (req, res) => {
   const user = await User.findById(req.params.id).select("-passwordHash");
 
   if (!user) {
-    res.status(500).json({ success: false, message: "user not found" });
+    return res.status(500).json({ success: false, message: "User not found" });
   }
   res.send(user);
 });
-
 
 /**
  * @route GET /api/users/get/count
@@ -44,8 +48,6 @@ router.get(`/get/count`, async (req, res) => {
     return res.status(500).json({ success: false, error: err });
   }
 });
-
-
 
 /**
  * @route POST /api/users
@@ -73,11 +75,10 @@ router.post(`/`, async (req, res) => {
   user = await user.save();
 
   if (!user) {
-    return res.status(400).send("the user cannot be created!");
+    return res.status(400).send("The user cannot be created!");
   }
   res.send(user);
 });
-
 
 /**
  * @route DELETE /api/users/:id
@@ -95,13 +96,18 @@ router.delete("/:id", async (req, res) => {
     } else {
       return res
         .status(404)
-        .json({ success: false, message: "user not found!" });
+        .json({ success: false, message: "User not found!" });
     }
   } catch (err) {
     return res.status(400).json({ success: false, error: err.message });
   }
 });
 
+/**
+ * @route POST /api/users/login
+ * @description Authenticate a user and return a JWT token
+ * @access Public
+ */
 router.post("/login", async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
@@ -112,7 +118,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       {
         userId: user.id,
-        isAdmin:user.isAdmin
+        isAdmin: user.isAdmin
       },
       PASSWORD_SECRET,
       { expiresIn: "1d" }
