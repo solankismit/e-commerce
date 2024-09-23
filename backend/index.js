@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 require("dotenv/config");
+const authJwt = require("./helpers/jwt");
+
 const { API_URL, CONNECTION_STRING } = require("./contants");
 
 app.use(cors());
@@ -14,6 +16,7 @@ app.options("*", cors());
 // middleware
 app.use(bodyParser.json()); //to ready req data
 app.use(morgan("tiny")); //To log requests
+app.use(authJwt());
 
 // Routes
 const productsRoutes = require("./routers/products");
