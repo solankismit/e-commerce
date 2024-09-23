@@ -28,6 +28,25 @@ router.get(`/:id`, async (req, res) => {
   res.send(user);
 });
 
+
+/**
+ * @route GET /api/users/get/count
+ * @description Get the count of all users
+ * @access Public
+ */
+router.get(`/get/count`, async (req, res) => {
+  try {
+    const userCount = await User.countDocuments();
+    res.send({
+      userCount: userCount,
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err });
+  }
+});
+
+
+
 /**
  * @route POST /api/users
  * @description Create a new user
@@ -59,6 +78,30 @@ router.post(`/`, async (req, res) => {
   res.send(user);
 });
 
+
+/**
+ * @route DELETE /api/users/:id
+ * @description Delete a user by ID
+ * @access Private
+ */
+router.delete("/:id", async (req, res) => {
+  // delete a user by id
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (user) {
+      return res
+        .status(200)
+        .json({ success: true, message: "The user is deleted!" });
+    } else {
+      return res
+        .status(404)
+        .json({ success: false, message: "user not found!" });
+    }
+  } catch (err) {
+    return res.status(400).json({ success: false, error: err.message });
+  }
+});
+
 router.post("/login", async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
@@ -69,6 +112,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       {
         userId: user.id,
+        isAdmin:user.isAdmin
       },
       PASSWORD_SECRET,
       { expiresIn: "1d" }

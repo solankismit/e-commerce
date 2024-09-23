@@ -7,6 +7,7 @@ const cors = require("cors");
 
 require("dotenv/config");
 const authJwt = require("./helpers/jwt");
+const errorHandler = require('./helpers/error-handler')
 
 const { API_URL, CONNECTION_STRING } = require("./contants");
 
@@ -17,6 +18,7 @@ app.options("*", cors());
 app.use(bodyParser.json()); //to ready req data
 app.use(morgan("tiny")); //To log requests
 app.use(authJwt());
+app.use(errorHandler)
 
 // Routes
 const productsRoutes = require("./routers/products");
