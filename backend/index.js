@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 require("dotenv/config");
+const { API_URL, CONNECTION_STRING } = require("./contants");
 
 app.use(cors());
 app.options("*", cors());
@@ -20,7 +21,7 @@ const categoriesRoutes = require("./routers/categories");
 const usersRoutes = require("./routers/users");
 const ordersRoutes = require("./routers/orders");
 
-const api = process.env.API_URL;
+const api = API_URL;
 
 app.use(`${api}/products`, productsRoutes);
 app.use(`${api}/categories`, categoriesRoutes);
@@ -29,7 +30,7 @@ app.use(`${api}/orders`, ordersRoutes);
 
 // Database Connection
 mongoose
-  .connect(process.env.CONNECTION_STRING, { dbName: "ecommerce-database" })
+  .connect(CONNECTION_STRING, { dbName: "ecommerce-database" })
   .then(() => {
     console.log("Database Connection is done");
   })
