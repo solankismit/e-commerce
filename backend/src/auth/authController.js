@@ -7,14 +7,16 @@ exports.login = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
-      return res.status(400).json({ success: false, message: "User not found" });
+      return res
+        .status(400)
+        .json({ success: false, message: "User not found" });
     }
 
     if (await bcrypt.compare(req.body.password, user.passwordHash)) {
       const token = jwt.sign(
         {
           userId: user.id,
-          isAdmin: user.isAdmin
+          isAdmin: user.isAdmin,
         },
         PASSWORD_SECRET,
         { expiresIn: "1d" }
@@ -28,7 +30,30 @@ exports.login = async (req, res) => {
   }
 };
 
+exports.register = async (req, res) => {
+  try {
+    const salt = await bcrypt.genSalt(10);
+    const data = req.body;
+    const user = new User({
+      name: data.name,
+      email: data.email,
+      passwordHash: await bcrypt.hash(data.password, salt),
+      phone: data.phone,
+      street: data.street,
+      apartment: data.apartment,
+      city: data.city,
+      zip: data.zip,
+      country: data.country,
+      isAdmin: data.isAdmin,
+    });
+
+    const savedUser = await user.save();
+    res.status(201).json(savedUser);
+  } catch (error) {
+    res.status(400).json({ success: false, error: error.message });
+  }
+};
+
 // You can add more authentication-related functions here, such as:
-// exports.register = async (req, res) => { ... }
 // exports.forgotPassword = async (req, res) => { ... }
 // exports.resetPassword = async (req, res) => { ... }
