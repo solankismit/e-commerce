@@ -8,7 +8,7 @@ exports.getAllProducts = async (req, res) => {
     if (req.query.categories) {
       filter = { category: req.query.categories.split(",") };
     }
-    const productList = await Product.find(filter).populate('category');
+    const productList = await Product.find(filter).populate("category");
     res.json(productList);
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
@@ -19,7 +19,9 @@ exports.getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id).populate("category");
     if (!product) {
-      return res.status(404).json({ success: false, message: "Product not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Product not found" });
     }
     res.json(product);
   } catch (error) {
@@ -31,7 +33,9 @@ exports.createProduct = async (req, res) => {
   try {
     const category = await Category.findById(req.body.category);
     if (!category) {
-      return res.status(400).json({ success: false, message: "Invalid category!" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid category!" });
     }
 
     const product = new Product(req.body);
@@ -45,17 +49,25 @@ exports.createProduct = async (req, res) => {
 exports.updateProduct = async (req, res) => {
   try {
     if (!mongoose.isValidObjectId(req.params.id)) {
-      return res.status(400).json({ success: false, message: "Invalid Product ID" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid Product ID" });
     }
 
     const category = await Category.findById(req.body.category);
     if (!category) {
-      return res.status(400).json({ success: false, message: "Invalid category!" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid category!" });
     }
 
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
     if (!product) {
-      return res.status(404).json({ success: false, message: "Product not found!" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Product not found!" });
     }
     res.json(product);
   } catch (error) {
@@ -67,7 +79,9 @@ exports.deleteProduct = async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
     if (!product) {
-      return res.status(404).json({ success: false, message: "Product not found!" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Product not found!" });
     }
     res.json({ success: true, message: "The product is deleted!" });
   } catch (error) {
