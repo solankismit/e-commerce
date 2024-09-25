@@ -54,11 +54,13 @@ exports.updateProduct = async (req, res) => {
         .json({ success: false, message: "Invalid Product ID" });
     }
 
-    const category = await Category.findById(req.body.category);
-    if (!category) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Invalid category!" });
+    if (req.body.category) {
+      const category = await Category.findById(req.body.category);
+      if (!category) {
+        return res
+          .status(400)
+          .json({ success: false, message: "Invalid category!" });
+      }
     }
 
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
