@@ -1,0 +1,26 @@
+{
+    "clientName": "Thunder Client",
+    "environmentName": "admin",
+    "environmentId": "050b9038-819e-4a88-876e-6ebb4a72d69e",
+    "dateExported": "2024-09-25T12:16:44.876Z",
+    "version": "1.2",
+    "variables": [
+        {
+            "name": "email",
+            "value": "henry.davis@example.com"
+        },
+        {
+            "name": "password",
+            "value": "hashed_password"
+        },
+        {
+            "name": "token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmYyYmEwNGVjODIxOWJiZGI5YmJiODciLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MjcyMzg4NzgsImV4cCI6MTcyNzMyNTI3OH0.fcT_AK0MyaOaEIi8U0jmhc6N6iW8DGwHX1dsn5Jn2Cg"
+        },
+        {
+            "name": "id",
+            "value": "66f2ba04ec8219bbdb9bbb87"
+        }
+    ],
+    "ref": "s1LRo9t2VvWYI-V8nVDGLFWD02SAzf2tXf7l4i5ldq2-VH8fiSsPtJ-yjBxapJs_"
+}

@@ -1,0 +1,585 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Ecommerce",
+    "collectionId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+    "dateExported": "2024-09-25T12:15:38.094Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "65c77ba6-1ca6-4e5b-bd9b-b64e56a11a5c",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2024-09-24T13:22:48.165Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "84a9cac4-238d-48e0-b668-9cd8a85969f1",
+            "name": "Products",
+            "containerId": "",
+            "created": "2024-09-24T13:26:40.839Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "449ce5fc-4df8-485c-a6ce-be6ede48f921",
+            "name": "Categories",
+            "containerId": "",
+            "created": "2024-09-24T13:26:47.641Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "55b51245-11b2-40f7-ac7e-05099c90c888",
+            "name": "Orders",
+            "containerId": "",
+            "created": "2024-09-24T14:21:45.406Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "b7b58249-6845-4bab-ba08-61f8b2787e57",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-09-25T10:40:58.911Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "52d1f70a-dc1e-4fbf-94fc-c5437ba1d1c7",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "65c77ba6-1ca6-4e5b-bd9b-b64e56a11a5c",
+            "name": "Login User",
+            "url": "http://localhost:3000/api/v1/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-09-24T13:22:33.063Z",
+            "modified": "2024-09-24T13:22:33.063Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"{{email}}\",\n  \"password\":\"{{password}}\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "custom-header",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "2cfd9f0b-d78d-431c-82a0-bdd07c3bee95",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "84a9cac4-238d-48e0-b668-9cd8a85969f1",
+            "name": "Get Products",
+            "url": "http://localhost:3000/api/v1/products",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-09-24T13:26:04.056Z",
+            "modified": "2024-09-24T14:18:06.726Z",
+            "headers": []
+        },
+        {
+            "_id": "081daaa2-1f72-49f4-a04a-7300939ea3e7",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "449ce5fc-4df8-485c-a6ce-be6ede48f921",
+            "name": "Get Categories",
+            "url": "http://localhost:3000/api/v1/categories",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-09-24T13:26:29.682Z",
+            "modified": "2024-09-25T11:06:30.969Z",
+            "headers": []
+        },
+        {
+            "_id": "a76807f2-5522-4d4f-be40-e7fd6e05d97c",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "b7b58249-6845-4bab-ba08-61f8b2787e57",
+            "name": "Get User",
+            "url": "http://localhost:3000/api/v1/users/66f2b9cc914025a3295c6494",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-09-25T10:31:00.744Z",
+            "modified": "2024-09-25T11:11:07.491Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": [
+                {
+                    "type": "custom-header",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "45b86f15-086b-4f3a-90c0-db79c0b1f280",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "449ce5fc-4df8-485c-a6ce-be6ede48f921",
+            "name": "Get Single Category",
+            "url": "http://localhost:3000/api/v1/categories/66f2c6ace0128a8d7834847a",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2024-09-25T11:06:25.968Z",
+            "modified": "2024-09-25T11:06:45.254Z",
+            "headers": []
+        },
+        {
+            "_id": "daa84e7e-0fdd-43bd-840b-6f8e6e1cd3df",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "84a9cac4-238d-48e0-b668-9cd8a85969f1",
+            "name": "Create Product",
+            "url": "http://localhost:3000/api/v1/products/p",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-09-24T14:10:08.658Z",
+            "modified": "2024-09-24T14:12:53.542Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "[\n  {\n    \"name\": \"Samsung Galaxy S23 Ultra\",\n    \"description\": \"The Samsung Galaxy S23 Ultra is a powerful smartphone with a stunning display, a powerful camera, and a long-lasting battery.\",\n    \"richDescription\": \"The Samsung Galaxy S23 Ultra is a powerful smartphone with a stunning display, a powerful camera, and a long-lasting battery. It is the ultimate device for those who want the best of the best.\",\n    \"image\": \"/images/products/samsung-galaxy-s23-ultra.jpg\",\n    \"brand\": \"Samsung\",\n    \"price\": 1299.99,\n    \"category\": \"66f2c6ace0128a8d7834847a\",\n    \"countInStock\": 10,\n    \"rating\": 4.5,\n    \"numReviews\": 100,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Apple iPhone 14 Pro Max\",\n    \"description\": \"The Apple iPhone 14 Pro Max is a premium smartphone with a stunning display, a powerful camera, and a long-lasting battery.\",\n    \"richDescription\": \"The Apple iPhone 14 Pro Max is a premium smartphone with a stunning display, a powerful camera, and a long-lasting battery. It is the ultimate device for those who want the best of the best.\",\n    \"image\": \"/images/products/apple-iphone-14-pro-max.jpg\",\n    \"brand\": \"Apple\",\n    \"price\": 1099.99,\n    \"category\": \"66f2c6ace0128a8d7834847a\",\n    \"countInStock\": 20,\n    \"rating\": 4.8,\n    \"numReviews\": 200,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Sony PlayStation 5\",\n    \"description\": \"The Sony PlayStation 5 is a powerful gaming console with stunning graphics and a fast loading speed.\",\n    \"richDescription\": \"The Sony PlayStation 5 is a powerful gaming console with stunning graphics and a fast loading speed. It is the ultimate device for gamers who want the best gaming experience.\",\n    \"image\": \"/images/products/sony-playstation-5.jpg\",\n    \"brand\": \"Sony\",\n    \"price\": 499.99,\n    \"category\": \"66f2c6ace0128a8d7834847a\",\n    \"countInStock\": 30,\n    \"rating\": 4.7,\n    \"numReviews\": 300,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Microsoft Xbox Series X\",\n    \"description\": \"The Microsoft Xbox Series X is a powerful gaming console with stunning graphics and a fast loading speed.\",\n    \"richDescription\": \"The Microsoft Xbox Series X is a powerful gaming console with stunning graphics and a fast loading speed. It is the ultimate device for gamers who want the best gaming experience.\",\n    \"image\": \"/images/products/microsoft-xbox-series-x.jpg\",\n    \"brand\": \"Microsoft\",\n    \"price\": 499.99,\n    \"category\": \"66f2c6ace0128a8d7834847a\",\n    \"countInStock\": 40,\n    \"rating\": 4.6,\n    \"numReviews\": 400,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Nintendo Switch OLED\",\n    \"description\": \"The Nintendo Switch OLED is a portable gaming console with a stunning display and a long-lasting battery.\",\n    \"richDescription\": \"The Nintendo Switch OLED is a portable gaming console with a stunning display and a long-lasting battery. It is the ultimate device for gamers who want to play on the go.\",\n    \"image\": \"/images/products/nintendo-switch-oled.jpg\",\n    \"brand\": \"Nintendo\",\n    \"price\": 349.99,\n    \"category\": \"66f2c6ace0128a8d7834847a\",\n    \"countInStock\": 50,\n    \"rating\": 4.9,\n    \"numReviews\": 500,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Nike Air Max 1\",\n    \"description\": \"The Nike Air Max 1 is a classic running shoe with a comfortable fit and a stylish design.\",\n    \"richDescription\": \"The Nike Air Max 1 is a classic running shoe with a comfortable fit and a stylish design. It is the perfect shoe for those who want a comfortable and stylish shoe.\",\n    \"image\": \"/images/products/nike-air-max-1.jpg\",\n    \"brand\": \"Nike\",\n    \"price\": 120,\n    \"category\": \"66f2c6d5e0128a8d7834847c\",\n    \"countInStock\": 60,\n    \"rating\": 4.2,\n    \"numReviews\": 600,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Adidas Ultraboost 22\",\n    \"description\": \"The Adidas Ultraboost 22 is a high-performance running shoe with a comfortable fit and a responsive ride.\",\n    \"richDescription\": \"The Adidas Ultraboost 22 is a high-performance running shoe with a comfortable fit and a responsive ride. It is the perfect shoe for runners who want a comfortable and responsive shoe.\",\n    \"image\": \"/images/products/adidas-ultraboost-22.jpg\",\n    \"brand\": \"Adidas\",\n    \"price\": 180,\n    \"category\": \"66f2c6d5e0128a8d7834847c\",\n    \"countInStock\": 70,\n    \"rating\": 4.4,\n    \"numReviews\": 700,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Levi's 501 Jeans\",\n    \"description\": \"The Levi's 501 Jeans are a classic pair of jeans with a comfortable fit and a stylish design.\",\n    \"richDescription\": \"The Levi's 501 Jeans are a classic pair of jeans with a comfortable fit and a stylish design. They are the perfect jeans for those who want a comfortable and stylish pair of jeans.\",\n    \"image\": \"/images/products/levis-501-jeans.jpg\",\n    \"brand\": \"Levi's\",\n    \"price\": 70,\n    \"category\": \"66f2c6d5e0128a8d7834847c\",\n    \"countInStock\": 80,\n    \"rating\": 4.3,\n    \"numReviews\": 800,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Ralph Lauren Polo Shirt\",\n    \"description\": \"The Ralph Lauren Polo Shirt is a classic polo shirt with a comfortable fit and a stylish design.\",\n    \"richDescription\": \"The Ralph Lauren Polo Shirt is a classic polo shirt with a comfortable fit and a stylish design. It is the perfect shirt for those who want a comfortable and stylish shirt.\",\n    \"image\": \"/images/products/ralph-lauren-polo-shirt.jpg\",\n    \"brand\": \"Ralph Lauren\",\n    \"price\": 80,\n    \"category\": \"66f2c6d5e0128a8d7834847c\",\n    \"countInStock\": 90,\n    \"rating\": 4.1,\n    \"numReviews\": 900,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"KitchenAid Stand Mixer\",\n    \"description\": \"The KitchenAid Stand Mixer is a powerful kitchen appliance that can handle a variety of tasks.\",\n    \"richDescription\": \"The KitchenAid Stand Mixer is a powerful kitchen appliance that can handle a variety of tasks. It is the perfect appliance for those who love to bake.\",\n    \"image\": \"/images/products/kitchenaid-stand-mixer.jpg\",\n    \"brand\": \"KitchenAid\",\n    \"price\": 300,\n    \"category\": \"66f2c6dde0128a8d7834847e\",\n    \"countInStock\": 100,\n    \"rating\": 4.6,\n    \"numReviews\": 1000,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Cuisinart Food Processor\",\n    \"description\": \"The Cuisinart Food Processor is a versatile kitchen appliance that can chop, slice, and dice.\",\n    \"richDescription\": \"The Cuisinart Food Processor is a versatile kitchen appliance that can chop, slice, and dice. It is the perfect appliance for those who want to make quick and easy meals.\",\n    \"image\": \"/images/products/cuisinart-food-processor.jpg\",\n    \"brand\": \"Cuisinart\",\n    \"price\": 150,\n    \"category\": \"66f2c6dde0128a8d7834847e\",\n    \"countInStock\": 110,\n    \"rating\": 4.5,\n    \"numReviews\": 1100,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Keurig K-Classic Coffee Maker\",\n    \"description\": \"The Keurig K-Classic Coffee Maker is a convenient coffee maker that makes a perfect cup of coffee every time.\",\n    \"richDescription\": \"The Keurig K-Classic Coffee Maker is a convenient coffee maker that makes a perfect cup of coffee every time. It is the perfect appliance for those who want a quick and easy cup of coffee.\",\n    \"image\": \"/images/products/keurig-k-classic-coffee-maker.jpg\",\n    \"brand\": \"Keurig\",\n    \"price\": 100,\n    \"category\": \"66f2c6dde0128a8d7834847e\",\n    \"countInStock\": 120,\n    \"rating\": 4.4,\n    \"numReviews\": 1200,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Instant Pot Duo Nova\",\n    \"description\": \"The Instant Pot Duo Nova is a versatile kitchen appliance that can cook a variety of dishes.\",\n    \"richDescription\": \"The Instant Pot Duo Nova is a versatile kitchen appliance that can cook a variety of dishes. It is the perfect appliance for those who want to make quick and easy meals.\",\n    \"image\": \"/images/products/instant-pot-duo-nova.jpg\",\n    \"brand\": \"Instant Pot\",\n    \"price\": 100,\n    \"category\": \"66f2c6dde0128a8d7834847e\",\n    \"countInStock\": 130,\n    \"rating\": 4.7,\n    \"numReviews\": 1300,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Lord of the Rings\",\n    \"description\": \"The Lord of the Rings is a classic fantasy novel by J.R.R. Tolkien.\",\n    \"richDescription\": \"The Lord of the Rings is a classic fantasy novel by J.R.R. Tolkien. It is a story of good versus evil, and it is a must-read for any fan of fantasy.\",\n    \"image\": \"/images/products/the-lord-of-the-rings.jpg\",\n    \"brand\": \"J.R.R. Tolkien\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 140,\n    \"rating\": 4.9,\n    \"numReviews\": 1400,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Harry Potter and the Sorcerer's Stone\",\n    \"description\": \"Harry Potter and the Sorcerer's Stone is the first book in the Harry Potter series by J.K. Rowling.\",\n    \"richDescription\": \"Harry Potter and the Sorcerer's Stone is the first book in the Harry Potter series by J.K. Rowling. It is a story about a young boy who discovers he is a wizard and attends Hogwarts School of Witchcraft and Wizardry.\",\n    \"image\": \"/images/products/harry-potter-and-the-sorcerers-stone.jpg\",\n    \"brand\": \"J.K. Rowling\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 150,\n    \"rating\": 4.8,\n    \"numReviews\": 1500,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Hunger Games\",\n    \"description\": \"The Hunger Games is a dystopian novel by Suzanne Collins.\",\n    \"richDescription\": \"The Hunger Games is a dystopian novel by Suzanne Collins. It is a story about a young girl who is forced to compete in a deadly game.\",\n    \"image\": \"/images/products/the-hunger-games.jpg\",\n    \"brand\": \"Suzanne Collins\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 160,\n    \"rating\": 4.7,\n    \"numReviews\": 1600,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Fault in Our Stars\",\n    \"description\": \"The Fault in Our Stars is a young adult novel by John Green.\",\n    \"richDescription\": \"The Fault in Our Stars is a young adult novel by John Green. It is a story about two teenagers who meet at a cancer support group.\",\n    \"image\": \"/images/products/the-fault-in-our-stars.jpg\",\n    \"brand\": \"John Green\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 170,\n    \"rating\": 4.6,\n    \"numReviews\": 1700,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Da Vinci Code\",\n    \"description\": \"The Da Vinci Code is a mystery novel by Dan Brown.\",\n    \"richDescription\": \"The Da Vinci Code is a mystery novel by Dan Brown. It is a story about a symbologist who is caught up in a conspiracy involving the Holy Grail.\",\n    \"image\": \"/images/products/the-da-vinci-code.jpg\",\n    \"brand\": \"Dan Brown\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 180,\n    \"rating\": 4.5,\n    \"numReviews\": 1800,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Girl with the Dragon Tattoo\",\n    \"description\": \"The Girl with the Dragon Tattoo is a mystery novel by Stieg Larsson.\",\n    \"richDescription\": \"The Girl with the Dragon Tattoo is a mystery novel by Stieg Larsson. It is a story about a journalist and a hacker who team up to investigate a series of murders.\",\n    \"image\": \"/images/products/the-girl-with-the-dragon-tattoo.jpg\",\n    \"brand\": \"Stieg Larsson\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 190,\n    \"rating\": 4.4,\n    \"numReviews\": 1900,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Gone Girl\",\n    \"description\": \"Gone Girl is a mystery novel by Gillian Flynn.\",\n    \"richDescription\": \"Gone Girl is a mystery novel by Gillian Flynn. It is a story about a husband who becomes the prime suspect in his wife's disappearance.\",\n    \"image\": \"/images/products/gone-girl.jpg\",\n    \"brand\": \"Gillian Flynn\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 200,\n    \"rating\": 4.3,\n    \"numReviews\": 2000,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Girl on the Train\",\n    \"description\": \"The Girl on the Train is a mystery novel by Paula Hawkins.\",\n    \"richDescription\": \"The Girl on the Train is a mystery novel by Paula Hawkins. It is a story about a woman who becomes obsessed with a couple she sees from her train window.\",\n    \"image\": \"/images/products/the-girl-on-the-train.jpg\",\n    \"brand\": \"Paula Hawkins\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 210,\n    \"rating\": 4.2,\n    \"numReviews\": 2100,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Silent Patient\",\n    \"description\": \"The Silent Patient is a psychological thriller novel by Alex Michaelides.\",\n    \"richDescription\": \"The Silent Patient is a psychological thriller novel by Alex Michaelides. It is a story about a psychotherapist who becomes obsessed with a patient who has been mute for six years.\",\n    \"image\": \"/images/products/the-silent-patient.jpg\",\n    \"brand\": \"Alex Michaelides\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 220,\n    \"rating\": 4.1,\n    \"numReviews\": 2200,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Guest List\",\n    \"description\": \"The Guest List is a mystery novel by Lucy Foley.\",\n    \"richDescription\": \"The Guest List is a mystery novel by Lucy Foley. It is a story about a wedding on a remote island that turns deadly.\",\n    \"image\": \"/images/products/the-guest-list.jpg\",\n    \"brand\": \"Lucy Foley\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 230,\n    \"rating\": 4,\n    \"numReviews\": 2300,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Chain\",\n    \"description\": \"The Chain is a thriller novel by Adrian McKinty.\",\n    \"richDescription\": \"The Chain is a thriller novel by Adrian McKinty. It is a story about a group of parents who are forced to kidnap a child in order to save their own.\",\n    \"image\": \"/images/products/the-chain.jpg\",\n    \"brand\": \"Adrian McKinty\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 240,\n    \"rating\": 3.9,\n    \"numReviews\": 2400,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Institute\",\n    \"description\": \"The Institute is a horror novel by Stephen King.\",\n    \"richDescription\": \"The Institute is a horror novel by Stephen King. It is a story about a group of children who are kidnapped and taken to a secret institution.\",\n    \"image\": \"/images/products/the-institute.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 250,\n    \"rating\": 3.8,\n    \"numReviews\": 2500,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"It\",\n    \"description\": \"It is a horror novel by Stephen King.\",\n    \"richDescription\": \"It is a horror novel by Stephen King. It is a story about a group of children who are terrorized by a shape-shifting monster.\",\n    \"image\": \"/images/products/it.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 260,\n    \"rating\": 3.7,\n    \"numReviews\": 2600,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Shining\",\n    \"description\": \"The Shining is a horror novel by Stephen King.\",\n    \"richDescription\": \"The Shining is a horror novel by Stephen King. It is a story about a family who is haunted by the ghosts of a hotel.\",\n    \"image\": \"/images/products/the-shining.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 270,\n    \"rating\": 3.6,\n    \"numReviews\": 2700,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Misery\",\n    \"description\": \"Misery is a horror novel by Stephen King.\",\n    \"richDescription\": \"Misery is a horror novel by Stephen King. It is a story about a writer who is kidnapped by his biggest fan.\",\n    \"image\": \"/images/products/misery.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 280,\n    \"rating\": 3.5,\n    \"numReviews\": 2800,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Stand\",\n    \"description\": \"The Stand is a horror novel by Stephen King.\",\n    \"richDescription\": \"The Stand is a horror novel by Stephen King. It is a story about a group of survivors who are fighting against a deadly virus.\",\n    \"image\": \"/images/products/the-stand.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 290,\n    \"rating\": 3.4,\n    \"numReviews\": 2900,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Green Mile\",\n    \"description\": \"The Green Mile is a horror novel by Stephen King.\",\n    \"richDescription\": \"The Green Mile is a horror novel by Stephen King. It is a story about a prison guard who discovers that one of the inmates has supernatural powers.\",\n    \"image\": \"/images/products/the-green-mile.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 300,\n    \"rating\": 3.3,\n    \"numReviews\": 3000,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"11/22/63\",\n    \"description\": \"11/22/63 is a time travel novel by Stephen King.\",\n    \"richDescription\": \"11/22/63 is a time travel novel by Stephen King. It is a story about a man who travels back in time to try to prevent the assassination of John F. Kennedy.\",\n    \"image\": \"/images/products/11-22-63.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 310,\n    \"rating\": 3.2,\n    \"numReviews\": 3100,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Doctor Sleep\",\n    \"description\": \"Doctor Sleep is a horror novel by Stephen King.\",\n    \"richDescription\": \"Doctor Sleep is a horror novel by Stephen King. It is a story about a man who is haunted by the ghosts of his past.\",\n    \"image\": \"/images/products/doctor-sleep.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 320,\n    \"rating\": 3.1,\n    \"numReviews\": 3200,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Revival\",\n    \"description\": \"Revival is a horror novel by Stephen King.\",\n    \"richDescription\": \"Revival is a horror novel by Stephen King. It is a story about a preacher who is obsessed with the power of life and death.\",\n    \"image\": \"/images/products/revival.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 330,\n    \"rating\": 3,\n    \"numReviews\": 3300,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Finders Keepers\",\n    \"description\": \"Finders Keepers is a thriller novel by Stephen King.\",\n    \"richDescription\": \"Finders Keepers is a thriller novel by Stephen King. It is a story about a man who finds a mysterious box that contains a secret.\",\n    \"image\": \"/images/products/finders-keepers.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 340,\n    \"rating\": 2.9,\n    \"numReviews\": 3400,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"11/22/63\",\n    \"description\": \"11/22/63 is a time travel novel by Stephen King.\",\n    \"richDescription\": \"11/22/63 is a time travel novel by Stephen King. It is a story about a man who travels back in time to try to prevent the assassination of John F. Kennedy.\",\n    \"image\": \"/images/products/11-22-63.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 350,\n    \"rating\": 2.8,\n    \"numReviews\": 3500,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Running Man\",\n    \"description\": \"The Running Man is a science fiction novel by Stephen King.\",\n    \"richDescription\": \"The Running Man is a science fiction novel by Stephen King. It is a story about a man who is forced to compete in a deadly game show.\",\n    \"image\": \"/images/products/the-running-man.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 360,\n    \"rating\": 2.7,\n    \"numReviews\": 3600,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Dark Tower\",\n    \"description\": \"The Dark Tower is a fantasy novel by Stephen King.\",\n    \"richDescription\": \"The Dark Tower is a fantasy novel by Stephen King. It is a story about a man who travels to a magical world to save it from destruction.\",\n    \"image\": \"/images/products/the-dark-tower.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 370,\n    \"rating\": 2.6,\n    \"numReviews\": 3700,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Eyes of the Dragon\",\n    \"description\": \"The Eyes of the Dragon is a fantasy novel by Stephen King.\",\n    \"richDescription\": \"The Eyes of the Dragon is a fantasy novel by Stephen King. It is a story about a king who is betrayed by his own brother.\",\n    \"image\": \"/images/products/the-eyes-of-the-dragon.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 380,\n    \"rating\": 2.5,\n    \"numReviews\": 3800,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Talisman\",\n    \"description\": \"The Talisman is a fantasy novel by Stephen King.\",\n    \"richDescription\": \"The Talisman is a fantasy novel by Stephen King. It is a story about a boy who travels to a magical world to find a cure for his mother's illness.\",\n    \"image\": \"/images/products/the-talisman.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 390,\n    \"rating\": 2.4,\n    \"numReviews\": 3900,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Black House\",\n    \"description\": \"Black House is a horror novel by Stephen King.\",\n    \"richDescription\": \"Black House is a horror novel by Stephen King. It is a story about a group of friends who are haunted by the ghosts of their past.\",\n    \"image\": \"/images/products/black-house.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 400,\n    \"rating\": 2.3,\n    \"numReviews\": 4000,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Desperation\",\n    \"description\": \"Desperation is a horror novel by Stephen King.\",\n    \"richDescription\": \"Desperation is a horror novel by Stephen King. It is a story about a group of people who are trapped in a desert town.\",\n    \"image\": \"/images/products/desperation.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 410,\n    \"rating\": 2.2,\n    \"numReviews\": 4100,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Regulators\",\n    \"description\": \"The Regulators is a horror novel by Stephen King.\",\n    \"richDescription\": \"The Regulators is a horror novel by Stephen King. It is a story about a group of people who are terrorized by a mysterious force.\",\n    \"image\": \"/images/products/the-regulators.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 420,\n    \"rating\": 2.1,\n    \"numReviews\": 4200,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Rose Madder\",\n    \"description\": \"Rose Madder is a horror novel by Stephen King.\",\n    \"richDescription\": \"Rose Madder is a horror novel by Stephen King. It is a story about a woman who escapes from her abusive husband.\",\n    \"image\": \"/images/products/rose-madder.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 430,\n    \"rating\": 2,\n    \"numReviews\": 4300,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"The Waste Lands\",\n    \"description\": \"The Waste Lands is a fantasy novel by Stephen King.\",\n    \"richDescription\": \"The Waste Lands is a fantasy novel by Stephen King. It is a story about a man who travels to a magical world to save it from destruction.\",\n    \"image\": \"/images/products/the-waste-lands.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 440,\n    \"rating\": 1.9,\n    \"numReviews\": 4400,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Wizard and Glass\",\n    \"description\": \"Wizard and Glass is a fantasy novel by Stephen King.\",\n    \"richDescription\": \"Wizard and Glass is a fantasy novel by Stephen King. It is a story about a man who travels to a magical world to find his destiny.\",\n    \"image\": \"/images/products/wizard-and-glass.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 450,\n    \"rating\": 1.8,\n    \"numReviews\": 4500,\n    \"isFeatured\": true\n  },\n  {\n    \"name\": \"Wolves of the Calla\",\n    \"description\": \"Wolves of the Calla is a fantasy novel by Stephen King.\",\n    \"richDescription\": \"Wolves of the Calla is a fantasy novel by Stephen King. It is a story about a man who travels to a magical world to save it from destruction.\",\n    \"image\": \"/images/products/wolves-of-the-calla.jpg\",\n    \"brand\": \"Stephen King\",\n    \"price\": 10,\n    \"category\": \"66f2c6e3e0128a8d78348480\",\n    \"countInStock\": 450,\n    \"rating\": 1.8,\n    \"numReviews\": 4500,\n    \"isFeatured\": true\n  }\n]",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "5224960d-a58a-472d-9d3b-e232ab0b2b15",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "449ce5fc-4df8-485c-a6ce-be6ede48f921",
+            "name": "Update Category",
+            "url": "http://localhost:3000/api/v1/categories/66f2c6e3e0128a8d78348480",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-09-25T11:08:29.507Z",
+            "modified": "2024-09-25T11:09:23.168Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"color\": \"#ffc167\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "2b0c1b76-f191-4a69-8cf0-f973c063a73e",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "b7b58249-6845-4bab-ba08-61f8b2787e57",
+            "name": "Get All Users",
+            "url": "http://localhost:3000/api/v1/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-09-25T11:10:44.843Z",
+            "modified": "2024-09-25T11:10:44.843Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": [
+                {
+                    "type": "custom-header",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "6d359553-7992-46d9-b866-77b8f7e862d5",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "84a9cac4-238d-48e0-b668-9cd8a85969f1",
+            "name": "Get Single Product",
+            "url": "http://localhost:3000/api/v1/products/66f2c9231d98b0d512375267",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-09-25T11:13:29.999Z",
+            "modified": "2024-09-25T11:13:52.918Z",
+            "headers": []
+        },
+        {
+            "_id": "f7c3c118-661a-4287-878b-b1c425c1072c",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "65c77ba6-1ca6-4e5b-bd9b-b64e56a11a5c",
+            "name": "Register User",
+            "url": "http://localhost:3000/api/v1/auth/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-09-25T11:21:15.612Z",
+            "modified": "2024-09-25T12:13:55.055Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john2.doe@example.com\",\n  \"phone\": \"12-456-7890\",\n  \"password\": \"hashed_password\",\n  \"street\": \"123 Main St\",\n  \"apartment\": \"Apt 1\",\n  \"city\": \"Anytown\",\n  \"zip\": \"12345\",\n  \"country\": \"USA\",\n  \"isAdmin\": false\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "custom-header",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "4021f31a-b649-4a95-bcd5-7c21cc150629",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "449ce5fc-4df8-485c-a6ce-be6ede48f921",
+            "name": "Create Categories",
+            "url": "http://localhost:3000/api/v1/categories",
+            "method": "POST",
+            "sortNum": 22500,
+            "created": "2024-09-24T14:02:47.079Z",
+            "modified": "2024-09-25T04:37:05.699Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Vehicles\",\n  \"color\": \"#ffc107\",\n  \"icon\": \"fas fa-vehic;e\",\n  \"image\": \"/images/vehicles.jpg\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "8561f82f-242b-40ef-884a-b98b6270071d",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "449ce5fc-4df8-485c-a6ce-be6ede48f921",
+            "name": "Delete Category",
+            "url": "http://localhost:3000/api/v1/categories/66f3ef0e708ea5f1a959108c",
+            "method": "DELETE",
+            "sortNum": 25000,
+            "created": "2024-09-25T11:07:08.616Z",
+            "modified": "2024-09-25T11:08:06.918Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "ea5b679a-64b6-4258-bebf-fb8548db530b",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "b7b58249-6845-4bab-ba08-61f8b2787e57",
+            "name": "Get User Count",
+            "url": "http://localhost:3000/api/v1/users/get/count",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-09-25T11:11:13.141Z",
+            "modified": "2024-09-25T11:11:50.923Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": [
+                {
+                    "type": "custom-header",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "03ec79cd-17e2-4d6d-b563-7b7291765b6b",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "84a9cac4-238d-48e0-b668-9cd8a85969f1",
+            "name": "Get Featured Products",
+            "url": "http://localhost:3000/api/v1/products/get/featured/10",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-09-25T11:14:05.940Z",
+            "modified": "2024-09-25T11:16:18.559Z",
+            "headers": []
+        },
+        {
+            "_id": "2bcd4dd5-1003-474b-be49-51a81d550d4c",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "84a9cac4-238d-48e0-b668-9cd8a85969f1",
+            "name": "Get Product Count",
+            "url": "http://localhost:3000/api/v1/products/get/count",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-09-25T11:14:09.119Z",
+            "modified": "2024-09-25T11:14:26.682Z",
+            "headers": []
+        },
+        {
+            "_id": "3f138e05-e365-4ee6-8847-0f8387cc56c2",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "84a9cac4-238d-48e0-b668-9cd8a85969f1",
+            "name": "Update Product",
+            "url": "http://localhost:3000/api/v1/products/66f2c9231d98b0d512375267",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-09-25T11:15:45.216Z",
+            "modified": "2024-09-25T11:17:09.513Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Samsung Galaxy S29 Ultra\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "4d02b5cc-bbf2-4f3d-b196-042c72ab620e",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "55b51245-11b2-40f7-ac7e-05099c90c888",
+            "name": "Get Orders",
+            "url": "http://localhost:3000/api/v1/orders",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-09-24T14:28:57.271Z",
+            "modified": "2024-09-25T04:41:44.692Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "ae5316a8-dbcb-4150-900f-dee47c47e46a",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "b7b58249-6845-4bab-ba08-61f8b2787e57",
+            "name": "Delete User",
+            "url": "http://localhost:3000/api/v1/users/66f2b9cc914025a3295c6494",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-09-25T11:12:06.230Z",
+            "modified": "2024-09-25T11:12:39.256Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": [
+                {
+                    "type": "custom-header",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "d7ee65a5-20a3-4bf1-85d5-d8e4e27a871d",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "84a9cac4-238d-48e0-b668-9cd8a85969f1",
+            "name": "Delete Product",
+            "url": "http://localhost:3000/api/v1/products/66f2c9231d98b0d512375267",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-09-25T12:14:38.268Z",
+            "modified": "2024-09-25T12:14:53.440Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "70637fed-dbef-4844-bdfd-7fcf9077c87d",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "55b51245-11b2-40f7-ac7e-05099c90c888",
+            "name": "Get Single Order",
+            "url": "http://localhost:3000/api/v1/orders/66f2cba008f4dfcecb13f012",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-09-25T04:48:53.283Z",
+            "modified": "2024-09-25T04:49:16.359Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "3bc14723-88e7-4492-953d-3bb56b448e2a",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "55b51245-11b2-40f7-ac7e-05099c90c888",
+            "name": "Get User Orders",
+            "url": "http://localhost:3000/api/v1/orders/get/userorders/66f2ba04ec8219bbdb9bbb87",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-09-25T11:00:35.626Z",
+            "modified": "2024-09-25T11:00:58.857Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "1b443506-5ddc-4087-9228-ff6c16dfbbf1",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "55b51245-11b2-40f7-ac7e-05099c90c888",
+            "name": "Update Order",
+            "url": "http://localhost:3000/api/v1/orders/66f2cba008f4dfcecb13f012",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-09-25T06:16:35.616Z",
+            "modified": "2024-09-25T06:17:28.545Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"status\": \"Processing\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "075dba5f-e157-44b2-bd77-370c8630ef58",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "55b51245-11b2-40f7-ac7e-05099c90c888",
+            "name": "Get Total Sales",
+            "url": "http://localhost:3000/api/v1/orders/get/totalsales",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-09-25T10:53:29.144Z",
+            "modified": "2024-09-25T10:53:43.463Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "ac9b69e3-32c9-48da-8318-cdc3ee530f24",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "55b51245-11b2-40f7-ac7e-05099c90c888",
+            "name": "Create Order",
+            "url": "http://localhost:3000/api/v1/orders",
+            "method": "POST",
+            "sortNum": 65000,
+            "created": "2024-09-24T14:21:56.998Z",
+            "modified": "2024-09-25T10:36:36.425Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"orderItems\": [\n    {\n      \"product\": \"66f2c9231d98b0d512375267\",\n      \"quantity\": 4\n    },\n    {\n      \"product\": \"66f2c9231d98b0d512375268\",\n      \"quantity\": 1\n    }\n  ],\n  \"user\":\"{{id}}\",\n  \"shippingAddress1\": \"123 Main St\",\n  \"shippingAddress2\": \"Apt 1\",\n  \"city\": \"New York\",\n  \"zip\": \"10001\",\n  \"country\": \"USA\",\n  \"phone\": \"555-123-4567\",\n  \"status\": \"Pending\",\n  \"totalPrice\": 100\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "5ad8e24c-0e39-42f2-b840-cf4e09758d11",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "55b51245-11b2-40f7-ac7e-05099c90c888",
+            "name": "Delete Order",
+            "url": "http://localhost:3000/api/v1/orders/66f3e7ad3afd1ad630bd3b03",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2024-09-25T06:26:18.255Z",
+            "modified": "2024-09-25T10:39:57.843Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        },
+        {
+            "_id": "3d1d021b-eb45-4e4f-923d-e4b49c15c064",
+            "colId": "6bc0b6fc-a973-49ea-a0f4-6db264abe58c",
+            "containerId": "55b51245-11b2-40f7-ac7e-05099c90c888",
+            "name": "Get Order Count",
+            "url": "http://localhost:3000/api/v1/orders/get/ordercount",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-09-25T10:56:53.943Z",
+            "modified": "2024-09-25T10:57:08.544Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            }
+        }
+    ],
+    "ref": "SQXwNkhT15z6thLnhSMxD3xY1xLGBqcUOuafUvXnnlKCFGiKrL4zhCwJz42FgtsLAURiM_DTvXje4SCxZ7KUTQ"
+}
