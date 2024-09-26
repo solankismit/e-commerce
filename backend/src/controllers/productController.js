@@ -31,6 +31,9 @@ exports.getProductById = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   try {
+    const file = req.file;
+    if (!file) return res.status(400).send("No image in the request");
+
     const category = await Category.findById(req.body.category);
     if (!category) {
       return res
@@ -38,7 +41,21 @@ exports.createProduct = async (req, res) => {
         .json({ success: false, message: "Invalid category!" });
     }
 
-    const product = new Product(req.body);
+    const fileName = req.file?.filename;
+    const basePath = `${req.protocol}://${req.get("host")}/public/uploads/`;
+    const product = new Product({
+      name: req.body.name,
+      description: req.body.description,
+      richDescription: req.body.richDescription,
+      image: `${basePath}${fileName}`,
+      images: req.body.images,
+      price: req.body.price,
+      category: req.body.category,
+      countInStock: req.body.countInStock,
+      rating: req.body.rating,
+      numReviews: req.body.numReviews,
+      isFeatured: req.body.isFeatured,
+    });
     const savedProduct = await product.save();
     res.status(201).json(savedProduct);
   } catch (error) {
@@ -66,6 +83,41 @@ exports.updateProduct = async (req, res) => {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
+    if (!product) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Product not found!" });
+    }
+    res.json(product);
+  } catch (error) {
+    res.status(400).json({ success: false, error: error.message });
+  }
+};
+
+exports.updateProductImage = async (req, res) => {
+  try {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid Product ID" });
+    }
+
+    const files = req.files;
+    let imagePaths = [];
+    const basePath = `${req.protocol}://${req.get("host")}/public/uploads/`;
+    if (files) {
+      files?.map((file) => {
+        imagePaths.push(`${basePath}${file.filename}`);
+      });
+    }
+
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      { images: imagePaths },
+      {
+        new: true,
+      }
+    );
     if (!product) {
       return res
         .status(404)

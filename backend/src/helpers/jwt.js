@@ -10,6 +10,10 @@ function authJwt() {
   }).unless({
     path: [
       {
+        url: /\/public\/uploads(.*)/,
+        methods: ["GET", "OPTIONS"],
+      },
+      {
         url: /\/api\/v1\/products(.*)/,
         methods: ["GET", "OPTIONS"],
       },
@@ -25,6 +29,7 @@ function authJwt() {
 }
 
 async function isRevoked(req, payload) {
+  console.log(`Checking if revoked for path: ${req.path}`); // Debugging line
   if (payload.payload.isAdmin === false) {
     return true;
   }
