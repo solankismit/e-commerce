@@ -23,7 +23,6 @@ function authJwt() {
       },
       `${API_URL}/auth/login`,
       `${API_URL}/auth/register`,
-      `${API_URL}/auth/multiregister`,
     ],
   });
 }
