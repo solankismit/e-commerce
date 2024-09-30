@@ -57,7 +57,7 @@ exports.register = async (req, res) => {
     });
 
     const savedUser = await user.save();
-    res.status(201).json(savedUser);
+    res.status(201).json({ message: "Registration Successful", success: true });
   } catch (error) {
     console.log(error); // Log the entire error object for debugging
     if (error.name === "ValidationError") {
