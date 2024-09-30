@@ -26,7 +26,7 @@ exports.login = async (req, res) => {
       res.status(400).json({ success: false, message: "Incorrect Password" });
     }
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
@@ -34,6 +34,15 @@ exports.register = async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
     const data = req.body;
+
+    const existingUser = await User.findOne({ email: data.email });
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        errors: { email: "Email already exists" },
+      });
+    }
+
     const user = new User({
       name: data.name,
       email: data.email,
@@ -50,7 +59,23 @@ exports.register = async (req, res) => {
     const savedUser = await user.save();
     res.status(201).json(savedUser);
   } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
+    console.log(error); // Log the entire error object for debugging
+    if (error.name === "ValidationError") {
+      const errors = {};
+      for (const field in error.errors) {
+        errors[field] = error.errors[field].message;
+      }
+      return res.status(400).json({ success: false, errors });
+    }
+
+    // Handle MongoError 11000 for duplicate key errors
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
+      return res.status(400).json({
+        success: false,
+        errors: { email: "Email already exists" },
+      });
+    }
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
