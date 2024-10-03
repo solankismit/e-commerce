@@ -31,6 +31,7 @@ exports.getProductById = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   try {
+    console.log(req);
     const file = req.file;
     if (!file) return res.status(400).send("No image in the request");
 
@@ -41,13 +42,12 @@ exports.createProduct = async (req, res) => {
         .json({ success: false, message: "Invalid category!" });
     }
 
-    const fileName = req.file?.filename;
-    const basePath = `${req.protocol}://${req.get("host")}/public/uploads/`;
+    const basePath = `${req?.file?.path}`;
     const product = new Product({
       name: req.body.name,
       description: req.body.description,
       richDescription: req.body.richDescription,
-      image: `${basePath}${fileName}`,
+      image: `${basePath}`,
       images: req.body.images,
       price: req.body.price,
       category: req.body.category,
@@ -104,11 +104,8 @@ exports.updateProductImage = async (req, res) => {
 
     const files = req.files;
     let imagePaths = [];
-    const basePath = `${req.protocol}://${req.get("host")}/public/uploads/`;
     if (files) {
-      files?.map((file) => {
-        imagePaths.push(`${basePath}${file.filename}`);
-      });
+      files.map((file) => imagePaths.push(file.path));
     }
 
     const product = await Product.findByIdAndUpdate(

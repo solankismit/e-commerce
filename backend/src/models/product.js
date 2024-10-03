@@ -25,7 +25,7 @@ const productSchema = mongoose.Schema(
       default: "",
       validate: {
         validator: function (v) {
-          return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(
+          return /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/.test(
             v
           );
         },
