@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate-v2");
 
 // Model is same as Collection in mongodb
 const productSchema = mongoose.Schema(
@@ -96,6 +97,9 @@ const productSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+// Add Pagination
+productSchema.plugin(mongoosePaginate); // Add this line
 
 // For efficient search, we can create a text index on the name and description fields.
 

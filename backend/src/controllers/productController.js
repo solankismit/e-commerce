@@ -5,10 +5,29 @@ const mongoose = require("mongoose");
 exports.getAllProducts = async (req, res) => {
   try {
     let filter = {};
+    let sort = {};
     if (req.query.categories) {
       filter = { category: req.query.categories.split(",") };
     }
-    const productList = await Product.find(filter).populate("category");
+    if (req.query.order_by) {
+      const [field, order] = req.query.order_by.split(".");
+      if (order === "desc") {
+        sort[field] = -1;
+      } else if (order === "asc") {
+        sort[field] = 1;
+      } else {
+        sort[field] = -1; // default to desc if order is not specified
+      }
+    } else {
+      sort = { createdAt: -1 }; // default sort by createdAt in desc order
+    }
+    const options = {
+      sort,
+      offset: parseInt(req.query.offset, 10) || 0,
+      limit: parseInt(req.query.limit, 10) || 10,
+    };
+    const { docs } = await Product.paginate(filter, options); // Destructure docs from the result
+    const productList = await Product.populate(docs, "category"); // Populate the category field
     res.json(productList);
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
